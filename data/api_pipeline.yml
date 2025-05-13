@@ -1,0 +1,12 @@
+pipeline_name: reddit_fan_metrics
+source: Reddit API (PRAW)
+credentials: .env (client_id, client_secret, user_agent)
+extraction:
+  method: API request via PRAW
+  targets: Subreddit subscriber counts for all NBA teams
+transformation:
+  - Clean team names
+  - Normalize columns
+  - Convert subscriber count to int
+load:
+  destination: data/reddit_api_call_fan_social_metrics.csv
