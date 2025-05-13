@@ -1,0 +1,11 @@
+pipeline_name: espn_attendance_data
+source: ESPN Attendance Web Table
+extraction:
+  method: BeautifulSoup table scrape
+  pages: 2001–2025 season URLs
+transformation:
+  - Remove non-team rows
+  - Deduplicate columns
+  - Normalize column names
+load:
+  destination: data/fan_attendance_data.csv
