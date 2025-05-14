@@ -1,7 +1,42 @@
 # NBA Data Fulfillment Project
 
 ## Project Overview
-This project is part of a portfolio initiative to demonstrate SQL, data collection, and ETL pipeline skills. It focuses on NBA data, using one API source and one web-scraped source to simulate real-world data engineering tasks.
+This portfolio project showcases end-to-end data engineering skills through a simulation of a real NBA Data Fulfillment Analyst role. It focuses on extracting and analyzing fan engagement and team performance data from multiple sources, using SQL, ETL pipelines, and data visualization tools to derive actionable insights for marketing optimization.
+
+---
+
+## Tech Stack
+- **Python** (requests, BeautifulSoup, pandas)
+- **SQL** (PostgreSQL)
+- **AWS RDS** (PostgreSQL DB hosting)
+- **GitHub Actions** (ETL automation)
+- **Power BI / Tableau** (data visualization)
+- **Papermill** (for notebook automation)
+- **Jupyter Notebooks**
+
+---
+
+## Project Objective
+**Who are you helping?**  
+NBA’s Global Partnerships & Marketing team
+
+**What problem are you solving?**  
+How to optimize ad targeting strategies based on fan engagement and merchandising trends
+
+**How will you solve their problem?**  
+By extracting Reddit and ESPN data, loading it into a PostgreSQL data warehouse, analyzing patterns with SQL, and presenting insights through dashboards.
+
+---
+
+## Job Description
+**Company:** National Basketball Association (NBA)  
+**Title:** Data Fulfillment Analyst  
+**Key Responsibilities:**  
+- Use SQL to analyze partner data  
+- Build segmentation models for ad targeting  
+- Collaborate across marketing, engineering, and data strategy teams
+
+📄 [Job_Description.pdf](proposal/Job_Description.pdf)
 
 ---
 
@@ -9,22 +44,53 @@ This project is part of a portfolio initiative to demonstrate SQL, data collecti
 
 ### Web Scraped Source
 - **URL:** [ESPN NBA Scoreboard – April 13, 2025](https://www.espn.com/nba/scoreboard/_/date/20250413)
-- **Output File:** `nba_espn_scores_20250413.csv`
-- **Details:** Collected NBA game scores, teams, and matchups using BeautifulSoup.
+- **Method:** Python + BeautifulSoup
+- **Output:** `nba_espn_scores_20250413.csv`
+- **Details:** Collected game scores and teams
 
 ### API Source
-- **API:** [BallDontLie API](https://www.balldontlie.io/)
-- **Endpoint:** `/v1/teams`
-- **Output File:** `nba_teams.csv`
-- **Details:** Pulled NBA team info including names, cities, conferences, and abbreviations.
+- **API:** [Reddit API via PRAW](https://praw.readthedocs.io/en/latest/)
+- **Subreddits:** Team-specific communities
+- **Output:** `reddit_api_call_fan_social_metrics.csv`
+- **Details:** Collected subscriber counts as a proxy for fan engagement
 
 ---
 
-## Extract & Load Notebooks
-- `notebooks/ESPN Web Scrape Extract Load.ipynb`
-- `notebooks/balldontlie_API_Extract_Load_Raw.ipynb`
+## Notebooks / Python Scripts
+
+| Notebook | Description |
+|----------|-------------|
+| `balldontlie_API_Extract_Load_Raw.ipynb` | Used for pulling team metadata from BallDontLie API |
+| `ESPN_Web_Scrape_Extract_Load.ipynb` | Scrapes game score data |
+| `Reddit API call.ipynb` | Pulls subreddit fan engagement metrics |
+| `Team Google Trends Scrape.ipynb` | (Optional enrichment) Tracks fan interest via Google Trends |
 
 ---
 
-## Milestone 01 Complete
-Raw data from both the API and web scraping sources has been collected and saved into CSV files under the `data/` folder, fulfilling the requirements of Milestone 01.
+## SQL Analysis
+(Coming in Milestone 03)
+
+- Descriptive and diagnostic SQL queries using CTEs, JOINs, aggregation, and window functions
+- Executed via `pandas.read_sql()` from Jupyter Notebooks
+- Stored in:
+  - `reddit_api_SQL_Analysis.ipynb`
+  - `espn_scores_SQL_Analysis.ipynb`
+
+---
+
+## Visualizations
+(Coming in Milestone 04)
+
+- Dashboards created in Tableau or Power BI
+- Each SQL query linked to a paired visualization
+- Summary in `reports/Visualizations.pdf`
+
+---
+
+## Future Improvements
+- Expand sentiment analysis using Reddit comments or Twitter feeds
+- Incorporate real-time data ingestion via streaming tools
+- Build automated data validation in the pipeline
+
+---
+
