@@ -1,11 +1,16 @@
 pipeline_name: espn_attendance_data
 source: ESPN Attendance Web Table
 extraction:
-  method: BeautifulSoup table scrape
-  pages: 2001–2025 season URLs
+  method: Web scrape using requests + BeautifulSoup
+  pages: sample of one day of NBA games
 transformation:
-  - Remove non-team rows
-  - Deduplicate columns
-  - Normalize column names
+  - Drop rows with conference headers and non-team text (e.g. "East", "RK")
+  - Deduplicate repeated table headers
+  - Rename columns to standardized format:
+      * team → team_name
+      * year → season
+      * avg_home_game_attendance → home_attendance_avg
+  - Reset index and ensure data types are clean
 load:
+  format: CSV
   destination: data/fan_attendance_data.csv
