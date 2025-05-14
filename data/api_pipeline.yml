@@ -1,7 +1,7 @@
 pipeline_name: reddit_fan_metrics
 source: Reddit API (PRAW)
 credentials: 
-  method: hardcoded (for demo only)
+  method: hardcoded
   location: inside script using `praw.Reddit(...)`
 extraction:
   method: API request via PRAW
