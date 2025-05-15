@@ -1,0 +1,42 @@
+nba-data-fulfillment-project/
+│
+├── data/                         
+│   ├── _API_Data_Pipeline.pdf
+│   ├── _API_ERD.pdf
+│   ├── _Web_Scrape_Data_Pipeline.pdf
+│   ├── _Web_Scrape_ERD.pdf
+│   ├── _api_pipeline.yml
+│   ├── _web_scrape_pipeline.yml
+│   ├── _database_load.py
+│   ├── fan_attendance_data.csv
+│   ├── jersey_sales.csv
+│   ├── nba_espn_scores_20250413.csv
+│   ├── nba_standings_data.csv
+│   ├── nba_team_valuations.csv
+│   ├── nba_teams.csv
+│   ├── nba_youtube_statistics.csv
+│   ├── reddit_api_call_fan_social_metrics.csv
+│   └── x_statistics.csv
+│
+├── notebooks/                
+│   ├── ESPN_Web_Scrape_Extract_Load.ipynb
+│   ├── Reddit_API_call.ipynb
+│   ├── Team_Google_Trends_Scrape.ipynb
+│   ├── _API_SQL_Analysis.ipynb
+│   ├── _Web_Scrape_SQL_Analysis.ipynb
+│   └── balldontlie_API_Extract_Load_Raw.ipynb
+│
+├── proposal/                 
+│   ├── Job_Description.pdf
+│   ├── Project_Proposal.pdf
+│   └── READ.md
+│
+├── reports/                  
+│   ├── Presentation.pdf
+│   ├── Visual_1.png
+│   ├── Visual_2.png
+│   ├── Visual_3.png
+│   ├── Visual_4.png
+│   └── Visualizations_Project_2.ipynb
+│
+└── README.md                    
