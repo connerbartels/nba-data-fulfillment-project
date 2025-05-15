@@ -1,96 +1,99 @@
-# NBA Data Fulfillment Project
+# NBA Popularity vs Performance: A Data-Driven Playbook
 
-## Project Overview
-This portfolio project showcases end-to-end data engineering skills through a simulation of a real NBA Data Fulfillment Analyst role. It focuses on extracting and analyzing fan engagement and team performance data from multiple sources, using SQL, ETL pipelines, and data visualization tools to derive actionable insights for marketing optimization.
+## Overview
 
----
+This project explores the relationship between NBA team performance and fan popularity metrics including social media presence, jersey sales, and game attendance. Built to reflect the real-world duties of a Junior Data Engineer / Data Analyst, this project demonstrates how to extract, transform, and analyze data from APIs and web scraping workflows to derive business insights.
 
-## Tech Stack
-- **Python** (requests, BeautifulSoup, pandas)
-- **SQL** (PostgreSQL)
-- **AWS RDS** (PostgreSQL DB hosting)
-- **GitHub Actions** (ETL automation)
-- **Power BI / Tableau** (data visualization)
-- **Papermill** (for notebook automation)
-- **Jupyter Notebooks**
+**GitHub Repository:** https://github.com/connerbartels/nba-data-fulfillment-project
 
 ---
 
-## Project Objective
-**Who are you helping?**  
-NBA’s Global Partnerships & Marketing team
+## Objective
 
-**What problem are you solving?**  
-How to optimize ad targeting strategies based on fan engagement and merchandising trends
+**Who is this for?**  
+NBA media, marketing, and operations teams
 
-**How will you solve their problem?**  
-By extracting Reddit and ESPN data, loading it into a PostgreSQL data warehouse, analyzing patterns with SQL, and presenting insights through dashboards.
+**What problem does it solve?**  
+Helps identify whether fan engagement is driven by on-court success or brand popularity
+
+**How was it solved?**  
+Integrated data from APIs and web scraping pipelines into a PostgreSQL database. Used SQL and Python to analyze patterns and generate actionable insights.
 
 ---
 
-## Job Description
-**Company:** National Basketball Association (NBA)  
-**Title:** Data Fulfillment Analyst  
-**Key Responsibilities:**  
-- Use SQL to analyze partner data  
-- Build segmentation models for ad targeting  
-- Collaborate across marketing, engineering, and data strategy teams
+## Tools and Technologies
 
-📄 [Job_Description.pdf](proposal/Job_Description.pdf)
+- **Languages**: Python, SQL  
+- **Database**: AWS RDS (PostgreSQL)  
+- **Libraries**: `pandas`, `sqlalchemy`, `requests`, `beautifulsoup4`, `praw`, `psycopg2`, `dotenv`  
+- **ETL Automation**: GitHub Actions  
+- **Visualization**: Matplotlib  
+- **Version Control**: Git, GitHub  
 
 ---
 
 ## Data Sources
 
-### Web Scraped Source
-- **URL:** [ESPN NBA Scoreboard – April 13, 2025](https://www.espn.com/nba/scoreboard/_/date/20250413)
-- **Method:** Python + BeautifulSoup
-- **Output:** `nba_espn_scores_20250413.csv`
-- **Details:** Collected game scores and teams
-
 ### API Source
-- **API:** [Reddit API via PRAW](https://praw.readthedocs.io/en/latest/)
-- **Subreddits:** Team-specific communities
-- **Output:** `reddit_api_call_fan_social_metrics.csv`
-- **Details:** Collected subscriber counts as a proxy for fan engagement
+
+- **Name**: BallDontLie API  
+- **Data**: NBA team metadata (team name, abbreviation, conference, city)  
+- **Job Relevance**: Reflects role requirements for data ingestion via APIs  
+- **Pipeline**: Python script pulls JSON → cleans with pandas → loads to PostgreSQL  
+
+### Web-Scraped Sources
+
+- **YouTube Statistics**: Subscribers, views, uploads  
+- **Reddit**: Subreddit subscriber count  
+- **X (Twitter)**: Follower counts  
+- **Jersey Sales**: Top-selling NBA jerseys by player/team  
+- **ESPN Standings**: Season wins and rankings  
+- **Job Relevance**: Demonstrates scraping and transforming external data sources  
+- **Pipeline**: BeautifulSoup + requests → transform with pandas → load to PostgreSQL  
 
 ---
 
-## Notebooks / Python Scripts
+## Folder Structure
 
-| Notebook | Description |
-|----------|-------------|
-| `balldontlie_API_Extract_Load_Raw.ipynb` | Used for pulling team metadata from BallDontLie API |
-| `ESPN_Web_Scrape_Extract_Load.ipynb` | Scrapes game score data |
-| `Reddit API call.ipynb` | Pulls subreddit fan engagement metrics |
-| `Team Google Trends Scrape.ipynb` | (Optional enrichment) Tracks fan interest via Google Trends |
+nba-data-fulfillment-project/
+
+├── data/  (CSV files from API and scrape outputs)
+
+├── notebooks/ (Jupyter notebooks for analysis and SQL queries used for insights)
+
+├── reports/ (Visualizations.pdf's, visualization.ipynb, and Presentation.pdf)
+
+├── proposal/ (Job_Description.pdf and Project_Proposal.pdf)
+
+└── README.md (This file)
+
 
 ---
 
-## SQL Analysis
-(Coming in Milestone 03)
+## Key Insights
 
-- Descriptive and diagnostic SQL queries using CTEs, JOINs, aggregation, and window functions
-- Executed via `pandas.read_sql()` from Jupyter Notebooks
-- Stored in:
-  - `reddit_api_SQL_Analysis.ipynb`
-  - `espn_scores_SQL_Analysis.ipynb`
+### Insight 1: Winning Doesn’t Guarantee Popularity  
+Teams like the Lakers dominate social media but may not always win. Meanwhile, high-performing teams like the Nuggets remain under-followed.
+
+- **Business Question**: Does team popularity match performance?
+- **Recommendation**: Promote underrated but successful teams
+- **Prediction**: Increase fan engagement with balanced exposure
+
+### Insight 2: Jersey Sales Driven by Star Power, Not Team Wins  
+Jersey rankings reflect individual player hype rather than team success.
+
+- **Business Question**: What influences jersey sales?
+- **Recommendation**: Focus marketing on high-profile players
+- **Prediction**: Boosted jersey and merchandise revenue
 
 ---
 
 ## Visualizations
-(Coming in Milestone 04)
 
-- Dashboards created in Tableau or Power BI
-- Each SQL query linked to a paired visualization
-- Summary in `reports/Visualizations.pdf`
-
----
-
-## Future Improvements
-- Expand sentiment analysis using Reddit comments or Twitter feeds
-- Incorporate real-time data ingestion via streaming tools
-- Build automated data validation in the pipeline
+Four visualizations were created from SQL queries and included in `reports/Visualizations.pdf`:
+- Performance Rank vs Social Rank
+- Jersey Sales vs Social Metrics
+- Performance vs Popularity Gaps
+- Total Wins vs Social Media Following
 
 ---
-
